@@ -5,7 +5,7 @@ const containsDuplicate = (nums) => {
     return new Set(nums).size != nums.length;
 };
 
-const containsDuplicate = (nums) => {
+const containsDuplicateAlt = (nums) => {
     const numSet = new Set();
 
     for (const num of nums) {
