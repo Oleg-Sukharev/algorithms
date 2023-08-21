@@ -2,18 +2,18 @@
 // and return false if every element is distinct.
 
 const containsDuplicate = (nums) => {
-    return new Set(nums).size != nums.length;
+  return new Set(nums).size != nums.length;
 };
 
 const containsDuplicateAlt = (nums) => {
-    const numSet = new Set();
+  const numSet = new Set();
 
-    for (const num of nums) {
-        if (numSet.has(num)) {
-            return true;
-        }
-        numSet.add(num);
+  for (const num of nums) {
+    if (numSet.has(num)) {
+      return true;
     }
+    numSet.add(num);
+  }
 
-    return false;
+  return false;
 }
