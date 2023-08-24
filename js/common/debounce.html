@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Debounce</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <input id="input" />
+  <div id="result"></div>
+
+  <script>
+    const input = document.getElementById("#input");
+    const result = document.getElementById("#result");
+    const debounceOnChange = debounce(onChange, 500);
+    input.addEventListener("keypress", debounceOnChange);
+    function onChange() {
+      result.innerText = input.value;
+    };
+
+    function debounce(func, delay) {
+      let timeout;
+      return function (...args) {
+        timeout = setTimeout(() => {
+          func.apply(this, args);
+        }, delay);
+      };
+    }
+  </script>
+</body>
+
+</html>
