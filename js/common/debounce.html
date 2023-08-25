@@ -20,8 +20,8 @@
   <div id="result"></div>
 
   <script>
-    const input = document.getElementById("#input");
-    const result = document.getElementById("#result");
+    const input = document.getElementById("input");
+    const result = document.getElementById("result");
     const debounceOnChange = debounce(onChange, 500);
     input.addEventListener("keypress", debounceOnChange);
     function onChange() {
@@ -31,6 +31,7 @@
     function debounce(func, delay) {
       let timeout;
       return function (...args) {
+        clearTimeout(timeout);
         timeout = setTimeout(() => {
           func.apply(this, args);
         }, delay);
