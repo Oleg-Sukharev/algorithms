@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .loader {
+    font-size: 43px;
+    animation: loading 2s ease-in-out infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      color: #fff;
+    }
+
+    50% {
+      color: #777;
+    }
+
+    100% {
+      color: #fff;
+    }
+  }
+
+  .wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<body>
+  <script>
+    class Loader {
+      static element = null
+
+      static build() {
+        let wrapper = document.createElement('div')
+        let div = document.createElement('div')
+        wrapper.classList.add('wrapper')
+        div.setAttribute('id', "loader")
+        div.textContent = 'Loading...'
+        div.classList.add('loader')
+        wrapper.append(div)
+
+        this.element = wrapper
+      }
+
+      static show() {
+        this.build()
+        document.body.append(this.element)
+      }
+
+      static hide() {
+        this.element.remove()
+      }
+    }
+
+    Loader.show()
+    setTimeout(() => Loader.hide(), 5000);
+  </script>
+</body>
+
+</html>
