@@ -3,7 +3,7 @@
 // An empty array contains no elements.
 // You may assume the object or array is the output of JSON.parse.
 
-//   Example 1:
+// Example 1:
 // Input: obj = { "x": 5, "y": 42 }
 // Output: false
 // Explanation: The object has 2 key - value pairs so it is not empty.
