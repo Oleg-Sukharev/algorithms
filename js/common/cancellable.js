@@ -9,7 +9,7 @@ const cancellable = (fn, args, t) => {
   let id = setTimeout(() => {
     // fn(...args);
     fn.apply(null, args);
-  }, t)
+  }, t);
   const setCancel = () => {
     clearInterval(id)
   }
