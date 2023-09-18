@@ -17,7 +17,6 @@ promise.then((result) => {
   console.log(error);
 });
 
-
 setTimeout(() => {
   controller.abort();
 }, 3000);
