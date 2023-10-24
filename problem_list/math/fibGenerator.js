@@ -17,6 +17,17 @@ const fibGenerator = function* () {
   }
 };
 
+function getFibonacciArr(length) {
+  const arr = [0, 1];
+
+  for (let index = 2; index < length; index++) {
+    arr[index] = arr[index - 1] + arr[index - 2];
+  }
+
+  return arr;
+}
+
+
 let generator = fibGenerator();
 console.log(generator.next().value);
 console.log(generator.next().value);
