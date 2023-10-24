@@ -1,8 +1,11 @@
+// array should be sorted 
 let fn = (arr, target) => {
   let left = 0;
   let right = arr.length - 1;
   while (left <= right) {
+    // need use  Math.floor to make sure we have an integer
     let mid = Math.floor((left + right) / 2);
+
     if (arr[mid] === target) {
       // do something
       return;

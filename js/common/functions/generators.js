@@ -1,42 +1,23 @@
-function* gen() {
-  yield 2 * (yield 100)
-}
 
-const generator = gen()
-console.log(generator.next().value)
-console.log(generator.next(1).value)
-console.log(generator.next(1).value)
+const fibGenerator = function* () {
+  let a = 0;
+  let b = 1;
 
-// 100
-// 2
-// undefined
+  yield a;
+  yield b;
 
-let x = { a: 1, b: 2 }
+  while (true) {
+    const c = a + b;
+    a = b;
+    b = c;
+    yield b;
+  }
+};
 
-function fn1(x) {
-  x.a = 5
-}
-
-function fn2() {
-  x.a = 5
-}
-
-function fn3(x) {
-  x = 5
-}
-
-function fn4() {
-  x = 5
-}
-
-fn1(x)
-console.log(x) // ?
-
-fn2(x)
-console.log(x) // ?
-
-fn3(x)
-console.log(x) // ?
-
-fn4(x)
-console.log(x) // ?
+let generator = fibGenerator();
+console.log(generator.next().value);
+console.log(generator.next().value);
+console.log(generator.next().value);
+console.log(generator.next().value);
+console.log(generator.next().value);
+console.log(generator.next().value);
