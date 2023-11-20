@@ -22,14 +22,14 @@
 // !important
 function chunk(array, size) {
   const chunked = [];
-  for (const element of array) {
-    console.log(element);
-    const last = chunked[chunked.length - 1];
 
-    if (!last || last.length === size) {
+  for (let element of array) {
+    const lastItem = chunked[chunked.length - 1];
+
+    if (!lastItem || lastItem.length === size) {
       chunked.push([element])
     } else {
-      last.push(element);
+      lastItem.push(element)
     }
   }
 
