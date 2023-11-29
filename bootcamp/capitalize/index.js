@@ -17,5 +17,10 @@ function capitalize(str) {
   return words.join(" ");
 }
 
+function capitalizeAlt(str) {
+  return str.split(" ").map((substring) => {
+    return substring[0].toUpperCase() + substring.slice(1);
+  }).join(' ')
+}
 
 module.exports = capitalize;
