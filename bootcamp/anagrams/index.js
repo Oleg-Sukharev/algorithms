@@ -14,11 +14,34 @@ function anagrams(stringA, stringB) {
 
 function cleanString(str) {
   return str
-    .replace(/[^\w]/g, '')
+    .replace(/[^a-zA-Z]+/g, '')
     .toLowerCase()
     .split('')
     .sort()
     .join('');
+}
+
+function anagramsAlt(stringA, stringB) {
+  const charMap = new Map()
+  const onlyCharStringA = stringA.replace(/[^a-zA-Z]+/g, '').toLowerCase();
+  const onlyCharStringB = stringB.replace(/[^a-zA-Z]+/g, '').toLowerCase();
+
+  for (const char of onlyCharStringA) {
+    charMap.set(char, (charMap.get(char) || 0) + 1)
+  }
+
+  for (const char of onlyCharStringB) {
+    if (charMap.has(char)) {
+      charMap.set(char, charMap.get(char) - 1);
+      if (charMap.get(char) === 0) {
+        charMap.delete(char)
+      }
+    } else {
+      return false;
+    }
+
+  }
+  return true
 }
 
 
