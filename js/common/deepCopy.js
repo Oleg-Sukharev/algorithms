@@ -20,3 +20,5 @@ function deepCopy(obj) {
   }
   return obj;
 }
+
+// const copyPerson = structuredClone({});
