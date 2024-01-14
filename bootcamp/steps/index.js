@@ -17,7 +17,7 @@
 //       '### '
 //       '####'
 
-function steps(n) {
+function stepsAlt(n) {
   if (n < 1) return null;
 
   for (let row = 0; row < n; row++) {
@@ -30,6 +30,19 @@ function steps(n) {
 
     console.log(printValue);
   }
+}
+
+function steps(n, row = 0, str = '') {
+  if (n === row) return;
+
+  if (n == str.length) {
+    console.log(str);
+
+    return steps(n, row + 1);
+  }
+
+  const addItem = str.length <= row ? "#" : " ";
+  return steps(n, row, str + addItem)
 }
 
 
