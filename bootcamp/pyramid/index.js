@@ -15,7 +15,20 @@
 //       '#####'
 
 
-function pyramid(n) {
+function pyramid(n, row = 0, str = "") {
+  if (row === n) return;
+
+  if (str.length === 2 * n - 1) {
+    console.log(str);
+    return pyramid(n, row + 1)
+  }
+
+  const middle = Math.floor((n * 2 - 1) / 2);
+  const addElement = str.length >= middle - row && middle + row >= str.length ? "#" : " ";
+  return pyramid(n, row, str + addElement)
+}
+
+function pyramidAlt(n) {
   const middle = Math.floor((n * 2 - 1) / 2);
   for (let row = 0; row < n; row++) {
     let printString = "";
