@@ -8,7 +8,26 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {
+function memoize(fn) {
+  const cache = {};
+
+  return function (...args) {
+    if (cache[args]) {
+      return cache[args]
+    }
+
+    // const result = fn(...args);
+    //  to maintain compatibility with older code
+    const result = fn.apply(this, args)
+    cache[args] = result;
+
+    return result;
+  }
+}
+
+// ✓ calculates correct fib value for 15(1 ms)
+// linear time
+function fibAlt(n) {
   const result = [0, 1];
 
   for (let i = 2; i <= n; i++) {
@@ -20,10 +39,14 @@ function fib(n) {
   return result[n];
 }
 
-function fibAlt(n) {
+// ✓ calculates correct fib value for 15(1002 ms)
+// exponential time
+function slowFib(n) {
   if (n < 2) return n;
 
   return fib(n - 1) + fib(n - 2);
 }
+
+const fib = memoize(fibAlt);
 
 module.exports = fib;
