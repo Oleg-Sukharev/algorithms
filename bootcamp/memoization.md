@@ -1,0 +1,2 @@
+# Memoization
+Store the arguments of each function call along with the result. If the function is called again with the same arguments, return the precomputed result, rather than running the function again
