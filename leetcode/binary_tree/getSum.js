@@ -26,19 +26,21 @@ const tree = {
   ]
 }
 
-const getTreeSum = (tree) => {
-  let sum = 0;
-
-  if (tree.value) {
-    sum += tree.value
+const getSumOfTree = (node) => {
+  if (!node) {
+    return 0;
   }
+  let sum = node.value;
 
-  if (tree.children) {
-    for (let index = 0; index < tree.children.length; index++) {
-      sum += getTreeSum(tree.children[index])
-    }
-  }
+  node.children?.map((child) => {
+    sum += getSumOfTree(child)
+  })
 
+  // if (node.children) {
+  //   for (const child of node.children) {
+  //     sum += calculateSum(child);
+  //   }
+  // }
   return sum;
 }
 
