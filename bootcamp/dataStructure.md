@@ -6,8 +6,19 @@ Data structures refer to ways of organizing and storing data so that it can be a
 
 # Queue
 
-A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle. Elements are added at one end (rear/enqueue) and removed from the other end (front/dequeue). The element that has been in the queue the longest is the first one to be removed.
+A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle. 
+Elements are added at one end (rear/enqueue) and removed from the other end (front/dequeue). 
+The element that has been in the queue the longest is the first one to be removed.
 
 # Stack
 
-In JavaScript, a stack is a linear data structure that follows the Last In, First Out (LIFO) principle. It means that the last element added to the stack is the first one to be removed. You can implement a stack using an array or a linked list.
+In JavaScript, a stack is a linear data structure that follows the Last In, First Out (LIFO) principle. 
+It means that the last element added to the stack is the first one to be removed. 
+You can implement a stack using an array or a linked list.
+
+# Linked List
+
+It's like a chain of connected elements. 
+Information is stored in a "node," and each node points to the next one. 
+Each node contains data and a reference to the next node. 
+Linked lists can be used to efficiently manage and allocate memory.
