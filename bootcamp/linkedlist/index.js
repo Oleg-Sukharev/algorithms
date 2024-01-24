@@ -3,12 +3,11 @@
 // See 'directions' document
 
 class Node {
-  constructor(data, next = null) {
+  constructor(data, next) {
     this.data = data;
     this.next = next;
   }
 }
-
 class LinkedList {
   constructor() {
     this.head = null;
@@ -127,12 +126,28 @@ class LinkedList {
 
     previous.next = previous.next.next;
   }
+
+  insertAt(data, index) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+
+    const previous = this.getAt(index - 1) || this.getLast();
+    const node = new Node(data, previous.next);
+    previous.next = node;
+  }
 }
 
-const list = new LinkedList();
-list.insertFirst(new Node(1))
-list.insertFirst(new Node(2))
-list.insertFirst(new Node(3))
-console.log(list.getLast());
+// const list = new LinkedList();
+// list.insertFirst(new Node(1))
+// list.insertFirst(new Node(2))
+// list.insertFirst(new Node(3))
+// console.log(list.getLast());
 
 module.exports = { Node, LinkedList };
