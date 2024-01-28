@@ -23,18 +23,13 @@ class LinkedList {
     let node = this.head;
 
     while (node) {
-      node = node.next;
       counter++;
+      node = node.next;
     }
 
     return counter;
-    // function getSum(el, sum = 0) {
-    //   if (!el?.data) return sum;
-    //   return getSum(el.next, sum + 1);
-    // }
+  };
 
-    // return getSum(this.head);
-  }
 
   getFirst() {
     return this.head;
@@ -141,6 +136,27 @@ class LinkedList {
     const previous = this.getAt(index - 1) || this.getLast();
     const node = new Node(data, previous.next);
     previous.next = node;
+  }
+
+  forEach(fn) {
+    if (!this.head) {
+      return null;
+    }
+
+    let node = this.head;
+
+    while (node) {
+      fn(node);
+      node = node.next;
+    }
+  }
+
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node) {
+      yield node;
+      node = node.next;
+    }
   }
 }
 
