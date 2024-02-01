@@ -11,26 +11,27 @@
 // function that gets called with each element in the tree
 
 class Node {
-  constructor(data){
-    this.data= data;
-    this.children = [];
-  }
+    constructor(data) {
+        this.data = data;
+        this.children = [];
+    }
 
-  add(data){
-    const node = new Node(data);
-    this.children.push(node);
-  }
+    add(data) {
+        const node = new Node(data);
+        this.children.push(node);
+    }
 
-  remove(removeData){
-    this.children = this.children.filter(({data})=> removeData !== data);
-  }
-
+    remove(removeData) {
+        this.children = this.children.filter(
+            ({ data }) => removeData !== data
+        );
+    }
 }
 
 class Tree {
-  constructor(){
-    this.root = null;
-  }
+    constructor() {
+        this.root = null;
+    }
 }
 
 module.exports = { Tree, Node };
