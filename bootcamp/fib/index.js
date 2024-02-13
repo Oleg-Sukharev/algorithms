@@ -8,21 +8,30 @@
 // Example:
 //   fib(4) === 3
 
+// function memoize(fn) {
+//   const cache = {};
+
+//   return function (...args) {
+//     if (cache[args]) {
+//       return cache[args]
+//     }
+
+//     // const result = fn(...args);
+//     //  to maintain compatibility with older code
+//     const result = fn.apply(this, args)
+//     cache[args] = result;
+
+//     return result;
+//   }
+// }
+
 function memoize(fn) {
-  const cache = {};
-
-  return function (...args) {
-    if (cache[args]) {
-      return cache[args]
+    let cache = new Map();
+    
+    return (...args) => {
+        const key = JSON.stringify(args);
+        return cache.has(key) ? cache.get(key) : cache.set(key, fn(...args)).get(key);
     }
-
-    // const result = fn(...args);
-    //  to maintain compatibility with older code
-    const result = fn.apply(this, args)
-    cache[args] = result;
-
-    return result;
-  }
 }
 
 // ✓ calculates correct fib value for 15(1 ms)
