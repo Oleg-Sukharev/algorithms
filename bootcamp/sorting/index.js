@@ -48,7 +48,6 @@ function mergeSort(arr) {
   return merge(mergeSort(left), mergeSort(right));
 }
 
-
 function merge(left, right) {
   const results = [];
 
