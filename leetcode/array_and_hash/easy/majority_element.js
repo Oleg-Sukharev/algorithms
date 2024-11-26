@@ -33,6 +33,7 @@ const majorityElementAlt = (nums) => {
 }
 
 //Boyer-Moore Voting Algorithm
+// !!! the majority element always exists in the array
 function majorityElement1(nums) {
     let candidate = null;
     let count = 0;
