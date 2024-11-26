@@ -31,3 +31,21 @@ const majorityElementAlt = (nums) => {
     let sorted = Object.entries(result).sort((a, b) => b[1] - a[1]);
     return sorted[0][0];
 }
+
+//Boyer-Moore Voting Algorithm
+function majorityElement1(nums) {
+    let candidate = null;
+    let count = 0;
+
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;
+        }
+        count += (num === candidate) ? 1 : -1;
+    }
+
+    return candidate;
+}
+
+console.log(majorityElement1([1, 2, 2]));
+console.log(majorityElementAlt([1, 2, 2]));
