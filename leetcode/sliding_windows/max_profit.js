@@ -15,20 +15,18 @@
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-
-const maxProfit = (prices) => {
-  if (!prices.length) return;
-
+function maxProfit(prices) {
   let min = prices[0];
-  let profit = -Infinity;
-  for (let i = 0; i < prices.length; i++) {
-    if (prices[i] < min) {
-      min = prices[i];
+  let profit = 0;
+
+  for (let i = 1; i < prices.length; i++) {
+    if (min > prices[i]) {
+      min = prices[i]
     }
-    if (prices[i] - min > profit) {
-      profit = prices[i] - min;
-    }
+
+    profit = Math.max(profit, prices[i] - min);
   }
+
   return profit;
 };
 
