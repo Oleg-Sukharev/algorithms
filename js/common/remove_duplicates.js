@@ -1,3 +1,5 @@
+const removeDupeAlt = (str) => Array.from(new Set(str)).join("");
+
 function removeDupes(str) {
   const chars = {};
   const res = [];
