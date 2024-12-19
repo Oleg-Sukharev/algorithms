@@ -35,3 +35,8 @@ const isPalindrome3 = (s) => {
     return char === s[s.length - 1 - i]
   })
 }
+
+function isPalindrome11(s) {
+  const charOnly = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  return charOnly === charOnly.split("").reverse().join("");
+};
