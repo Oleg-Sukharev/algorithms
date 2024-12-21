@@ -1,7 +1,7 @@
 // For example, for the 
 // input string "HelLo WoRld 123", the output should be "hELlO wOrLD 123".
 
-function solution(inputString:string) {
+function solution(inputString:string):string {
     const alphabet:string = "abcdefghijklmnopqrstuvwxyz";
     const alphabetUpperCase:string =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     

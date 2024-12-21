@@ -1,4 +1,4 @@
-function findVowelPositions(s:string[]) {
+function findVowelPositions(s:string[]):number[] {
   const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
   const result:number[] = [];
 

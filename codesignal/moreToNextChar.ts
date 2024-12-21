@@ -1,56 +1,29 @@
-
-function moreToNextChar(s:string) {
+function moreToNextChar(s: string): string {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const result:string[] = [];
+  const result: string[] = []; // Explicitly typing result as string[]
 
-    for (const index in array) {
-  console.log(index, array[index]); // 
-    const lowerChar = char.toLowerCase();
+  for (const char of s) { 
+    const lowerChar = char.toLowerCase(); // Handle case insensitivity
 
     if (alphabet.includes(lowerChar)) {
+      // Check if the character is uppercase
       const isUpperCase = char === char.toUpperCase();
+
+      // Find the current index in the alphabet and calculate the next index
       const currentIndex = alphabet.indexOf(lowerChar);
       const nextIndex = (currentIndex + 1) % alphabet.length;
+
+      // Get the next character, preserving the case
       const nextChar = isUpperCase
         ? alphabet[nextIndex].toUpperCase()
         : alphabet[nextIndex];
 
-      result.push(nextChar);
+      result.push(nextChar); // Add the transformed character
     } else {
-      result.push(char);
+      result.push(char); // Non-alphabetic characters remain unchanged
     }
   }
 
+  // Join the array into a final string and return it
   return result.join("");
 }
-
-
-// String Immutability in JavaScript:
-// In JavaScript, strings are immutable.Every time you concatenate a character to a string(result += char), a new string is created in memory, and the old string is discarded.
-// This can be inefficient for large strings because it involves repeatedly allocating memory and copying data.
-
-// function withArray(s) {
-//   const result = [];
-//   for (let char of s) {
-//     result.push(char === 'a' ? 'b' : char);
-//   }
-//   return result.join('');
-// }
-
-// function withString(s) {
-//   let result = '';
-//   for (let char of s) {
-//     result += char === 'a' ? 'b' : char;
-//   }
-//   return result;
-// }
-
-// const largeString = 'a'.repeat(1000000); // 1 million characters
-
-// console.time('With Array');
-// withArray(largeString);
-// console.timeEnd('With Array');
-
-// console.time('With String');
-// withString(largeString);
-// console.timeEnd('With String');
