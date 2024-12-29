@@ -24,4 +24,15 @@ const reverseString = function (s) {
   return s
 };
 
+// function reverseString(s) {
+//   let result = "";
+
+//   for (let i = 0; i < s.length; i++) {
+//     result += s[s.length - i - 1];
+//   }
+
+//   return result;
+// }
+
+
 console.log(reverseString(["h", "e", "l", "l", "o"]))
