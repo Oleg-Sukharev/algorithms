@@ -10,7 +10,7 @@ function reverseAlt(str) {
   return str.split('').reverse().join('');
 }
 
-function reverse(str) {
+function reverseAlter(str) {
   let result = "";
 
   for (const char of str) {
@@ -20,5 +20,8 @@ function reverse(str) {
   return result;
 }
 
+function reverse(str) {
+  return str.split("").reduce((acc, char) => char + acc, '');
+}
 
 module.exports = reverse;
